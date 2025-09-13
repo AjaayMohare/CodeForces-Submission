@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+ 
+int main() {
+	// your code goes here
+     int t;
+    scanf("%d", &t);
+ 
+     while(t--){
+         int n;
+         cin >> n;
+        int m;
+        cin >> m;
+        vector<pair<int,int> > v;
+        long long ans=0;
+        for(int i=0;i<n;i++){
+            int q,w;
+            cin >> q >> w;
+            v.push_back({q,w});
+        }
+        int l=0,r=0;
+        for(int i=0;i<n;i++){
+            int q=v[i].first,w=v[i].second;
+            if(abs(q-l)%2==abs(r-w)%2){
+                ans=ans+abs(q-l);
+            }
+            else{
+                                ans=ans+abs(q-l)-1;
+ 
+            }
+            l=q,r=w;
+        }
+        ans=ans+m-v[n-1].first;
+         
+         
+         printf("%d",ans);
+         cout << "\n";
+         
+     }
+}
