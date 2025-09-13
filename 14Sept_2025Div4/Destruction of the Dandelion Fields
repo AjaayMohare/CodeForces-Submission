@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	// your code goes here
+	int t;
+	cin >> t;
+	while(t--){
+	    int n;
+	    cin >> n;
+	    vector<int> v(n);
+	    long long es=0;
+	    vector<int> o;
+	    for(int i=0;i<n;i++){
+	        cin>>v[i];
+	        if(v[i]%2==0){
+	            es=es+v[i];
+	        }
+	        else{
+	            o.push_back(v[i]);
+	        }
+	    }
+	    sort(o.begin(),o.end());
+	    reverse(o.begin(),o.end());
+	    int l=-1;
+	   if(o.size()%2==0){
+	       l=(o.size())/2;
+	   }
+	   else{
+	       	       l=(o.size())/2 + 1;
+ 
+	   }
+	    long long ans=0;
+	    if(o.size()>0){
+	        
+	        for(int i=0;i<l;i++){
+	            ans=ans+o[i];
+	        }
+	        cout << es + ans << endl;
+	    }
+	    else{
+	        cout << 0 << endl;
+	    }
+	    
+	    
+	    
+	}
+ 
+}
