@@ -1,0 +1,57 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	// your code goes here
+     int t;
+     cin >> t;
+     while(t--){
+         int n,k;
+         cin >> n >> k;
+         vector<int> v(n);
+         map<int,int> m;
+         int same = 0;
+         int qty = 0;
+         for(int i=0;i<n;i++){
+             cin >> v[i];
+             if(v[i]<k){
+                 m[v[i]]++;
+                 qty++;
+             }
+             else if(v[i]==k){
+                 same++;
+             }
+         }
+         int extra = qty-m.size();
+         int g = n -same - qty;
+         if(k!=0){
+             
+             if(m.size()==k){
+                 cout << same << endl;
+             }
+             else{
+                 int need = k-m.size();
+                 if(same >=need){
+                     cout << same << endl;
+                 }
+                 else if(same + extra >=need){
+                     cout <<need << endl;
+                 }
+                 else if(same+extra+g>=need){
+                     cout << need << endl;
+                 }
+             }
+             
+             
+             
+         }
+         else if(k==0){
+             if(same>0){
+                 cout << same << endl;
+             }
+             else {
+                 cout << 0 << endl;
+             }
+         }
+     }
+}
