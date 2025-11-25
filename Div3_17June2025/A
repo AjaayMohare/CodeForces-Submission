@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+    int t;
+    cin >> t;
+    while(t--)
+    {
+        int q;
+        cin >> q;
+        int w;
+        cin >> w;
+        vector<int> x(q);
+        for(int j = 0; j < q; j++)
+        {
+            cin >> x[j];
+        }
+        sort(x.begin(), x.end());
+        if(x[0] <= w && w <= x[q - 1]) {
+            cout << min(2 * abs(w - x[0]) + abs(x[q - 1] - w), abs(w - x[0]) + 2 * abs(x[q - 1] - w)) << endl;
+        }
+        else if(w <= x[0])
+        {
+            cout << abs(x[q - 1] - w) << endl;
+        }
+        else
+        {
+            cout << abs(w - x[0]) << endl;
+        }
+    }
+}
