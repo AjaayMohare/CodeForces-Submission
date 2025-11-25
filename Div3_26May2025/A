@@ -1,0 +1,26 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin >> t;
+    while(t--)
+    {
+        string s;
+        cin >> s ;
+        int y =(s[0]-48)*1000 + (s[1]-48)*100 + (s[2]-48)*10 + (s[3]-48)*1;
+        int ans = sqrt(y);
+        // cout << "s is" << s << endl;
+        //         cout << "y is" << y << endl;
+        // cout << "anss is" << ans << endl;
+ 
+        if(ans*ans==y)
+        {
+            cout << 0 << " " << ans << endl;
+        }
+        else{
+            cout << -1 << endl;
+        }
+    }
+}
