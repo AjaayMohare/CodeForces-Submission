@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin >>t;
+    while(t--)
+    {
+        int n,m,l,r;
+        cin >> n >> m >>l >> r;
+        int ll=0;
+        int rr=0;
+        int stop = m;
+        if(r>=stop && stop>=0)
+        {
+            rr = rr +stop;
+            stop=0;
+        }
+        else if(r<stop && stop >=0)
+        {
+            rr=rr+r;
+            stop=stop-r;
+        }
+        ll = ll - stop;
+        cout << ll <<" "<< rr << endl;
+        
+    }
+}
