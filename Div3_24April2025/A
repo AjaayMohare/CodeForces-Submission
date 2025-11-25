@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin >> t;
+    while(t--)
+    {
+        int n;
+        cin >> n;
+        string s;
+        cin >> s;
+        int so=0;
+        for(int i=0;i<n;i++)
+        {
+            if(s[i]=='1')
+            {
+                so++;
+            }
+            else
+            {
+                continue;
+            }
+        }
+        
+        int ans=0;
+        //
+        for(int i=0;i<n;i++)
+        {
+            if(s[i]=='1')
+            {
+                ans = ans+(so-1);
+            }
+            else
+            {
+                ans=ans+(so+1);
+            }
+        }
+        cout << ans << endl;
+        
+    }
+}
