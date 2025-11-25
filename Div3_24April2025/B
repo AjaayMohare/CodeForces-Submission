@@ -1,0 +1,47 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin >> t;
+    while(t--)
+    {
+        long long n=0;
+        long long x=0;
+        cin >> n;
+        cin >> x;
+        vector<long long> v;
+        for(long long i=0;i<n;i++)
+        {
+            if(i!=x)
+            {
+                v.push_back(i);
+            }
+            else
+            {
+                continue;
+            }
+        }
+        if(n==1 && x==0)
+        {
+            v.clear();
+            v.push_back(0);
+        }
+        else if(x==n && x==1)
+        {
+            v.clear();
+            v.push_back(0);
+            
+        }
+        else if(v.size()!=n)
+        {
+            v.push_back(x);
+        }
+        for(int i=0;i<v.size();i++)
+        {
+            cout << v[i] << " ";
+        }
+        
+        cout << endl;
+    }
+}
