@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin >>t ;
+    while(t--)
+    {
+        int n;
+        cin >> n;
+        int G[n][n];
+        int sum =n*(2*n+1);
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                cin >> G[i][j];
+            }
+        }
+        vector<int> o;
+        for(int i=0;i<n;i++)
+        {
+            o.push_back(G[0][i]);
+            sum = sum - G[0][i];
+        }
+        for(int i=1;i<n;i++)
+        {
+            o.push_back(G[i][n-1]);
+            sum=sum-G[i][n-1];
+        }
+        cout << sum << " ";
+        for(int i=0;i<o.size();i++)
+        {
+            cout << o[i] << " ";
+        }
+        cout << endl;
+    }
+}
