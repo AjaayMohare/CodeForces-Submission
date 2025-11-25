@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin >> t;
+    while(t--)
+    {
+        string a,b,c;
+   cin >> a >> b >> c;
+        char d=a[0];
+        char e=b[0];
+        char f=c[0];
+        string ans="";
+        ans=ans+d;
+        ans = ans+e;
+        ans=ans+f;
+        cout << ans << endl;
+        
+    }
+}
