@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+    int a;
+    cin >> a;
+    while(a--)
+    {
+        int b;
+        cin >> b;
+        string c;
+        cin >> c;
+        int d = 0;
+        map<char, int> e;
+ 
+        for(int f = 1; f < b - 1; f++)
+        {
+            if(c[f] == c[0] || c[f] == c[b - 1])
+            {
+                d = 1;
+                break;
+            }
+            else
+            {
+                e[c[f]]++;
+            }
+        }
+ 
+        if(d == 1)
+        {
+            cout << "yes" << endl;
+        }
+        else if(e.size() < b - 2)
+        {
+            cout << "yes" << endl;
+        }
+        else
+        {
+            cout << "no" << endl;
+        }
+    }
+}
