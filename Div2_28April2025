@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main()
+{
+    int t;
+    cin >> t;
+    while(t--)
+    {
+        int a, b, c;
+        cin >> a >> b >> c;
+        int gap = a + b + c;
+        if (gap % 3 != 0)
+        {
+            cout << "NO" << endl;
+        }
+        else
+        {
+            int m = gap / 3;
+            if (m >= a && m >= b && m <= c)
+            {
+                cout << "YES" << endl;
+            }
+            else
+            {
+                cout << "NO" << endl;
+            }
+        }
+    }
+    return 0;
+}
