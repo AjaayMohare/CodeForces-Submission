@@ -1,0 +1,23 @@
+
+#include <iostream>
+using namespace std;
+// cdiv 2 question 2
+int main() {
+     
+ int t;
+ cin >> t;
+ while(t--){
+     long q,qq;
+     cin >> q >> qq;
+     if(q==1 || qq==1){
+         cout << "nO" << endl; 
+     }
+     else if(q==2 && qq==2){
+                  cout << "nO" << endl; 
+ 
+     }
+     else{
+         cout << "YeS"  << endl;
+     }
+ 
+}}
