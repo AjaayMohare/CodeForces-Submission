@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+    int a;
+    cin >> a;
+    while (a--) {
+        int b;
+        cin >> b;
+        vector<int> c(b);
+        int d = 0;
+        int e = INT_MIN;
+        int f = INT_MAX;
+        vector<int> g(102);
+        for (int h = 0; h < 102; h++) {
+            g[h] = 0;
+        }
+        for (int h = 0; h < b; h++) {
+            cin >> c[h];
+            if (c[h] == -1) {
+                d++;
+            } else {
+                g[c[h]] = 1;
+                e = max(c[h], e);
+                f = min(c[h], f);
+            }
+        }
+ 
+        int i = -1;
+        for (int h = 0; h < 102; h++) {
+            if (g[h] == 0) {
+                i = h;
+                break;
+            }
+        }
+ 
+        if (e == INT_MIN) {
+            e = -1;
+        }
+        if (f == INT_MAX) {
+            f = -1;
+        }
+ 
+        if (i == e - f) {
+            cout << "yes" << endl;
+        } else {
+            cout << "NO" << endl;
+        }
+    }
+}
