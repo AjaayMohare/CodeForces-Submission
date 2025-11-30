@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 // cdiv 2 question 2
 int main() {
      ios::sync_with_stdio(false);
