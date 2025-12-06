@@ -1,0 +1,102 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+    int t;
+    cin >> t;
+    while(t--){
+        string s,t;
+        cin >> s >> t;
+        map<char,int> ms,mt;
+        for(int i=0;i<s.size();i++){
+            ms[s[i]]++;
+        }
+        for(int i=0;i<t.size();i++){
+            mt[t[i]]++;
+        }
+        int fl = 0;
+        for(auto i : ms){
+            int fms = i.second;
+            int fmt;
+            if(mt.count(i.first)) fmt = mt[i.first];
+            else fmt = 0;
+            if(fms>fmt){
+                fl=1;
+                break;
+            }
+        }
+        if(fl==1){
+            cout << "Impossible" << endl;
+        }
+        else{
+            string y="";
+            for(auto j :mt){
+                if(ms.count(j.first)){
+                    int iff = abs(ms[j.first]-j.second);
+                    while(iff--){
+                        y.push_back(j.first);
+                    }
+                }
+                else{
+                    int iff=j.second;
+                    while(iff--){
+                        y.push_back(j.first);
+                    }
+                }
+                
+            }
+            
+            
+            int i=0,j=0;
+            string an="";
+            while(i<s.size()&&j<y.size()){
+                if(s[i]>y[j]){
+                    an.push_back(y[j]);
+                    j++;
+                }
+                else if(s[i]<y[j]){
+                    an.push_back(s[i]);
+                    i++;
+                }
+                else{
+                    an.push_back(s[i]);
+                    i++;
+                    
+                }
+            }
+            
+            while(i<s.size()){
+                    an.push_back(s[i]);
+                    i++;                
+            }
+            while(j<y.size()){
+                an.push_back(y[j]);
+                    j++;
+            }
+            cout << an << endl;
+            // string an = "";
+            // for(int i=0;i<s.size();i++){
+            //     for(auto it = mt.begin(); it != mt.end(); ){
+            //         if(s[i] > it->first){
+            //             an = an + it->first;
+            //             it->second--;
+            //             if(it->second == 0) it = mt.erase(it);
+            //             else ++it;
+            //         }
+            //         else if(ms[s[i]] == it->second){
+            //             it = mt.erase(it);
+            //         }
+            //         else ++it;
+            //     }
+            //     an=an+s[i];
+            // }
+            // for(auto i : mt){
+            //     int a = mt[i.first];
+            //     while(a--){
+            //         an = an + i.first;
+            //     }
+            // }
+            // cout << an << endl;
+        }
+    }
+}
