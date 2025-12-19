@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+int main() 
+{
+    // cout << "Hello, World!";
+    int t;
+    cin >> t;
+    while(t--){
+      map<int,int> m;
+      
+      int l,a,b;
+      
+      cin >> l >> a >> b;
+      int mx=a;
+      m[a]++;
+      int x=a+b;
+      while(!m.count(x%l)){
+        mx=max(mx,x%l);
+        m[x%l]++;
+        x+=b;
+        
+      }
+      cout << mx << endl;
+    }
+    return 0;
+}
