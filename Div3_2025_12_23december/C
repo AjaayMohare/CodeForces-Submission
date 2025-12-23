@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	// your code goes here
+	int t;
+	cin >> t;
+	while(t--){
+	    int n;
+	    cin >> n;
+	    vector<int> v(n);
+	    int mini=INT_MAX;
+	    for(int i=0;i<n;i++){
+	        cin >> v[i];
+	        mini=min(mini,v[i]);
+	    }
+	    int ans=mini;
+	    int minic=0;
+	    for(int i=0;i<n;i++){
+	        if(ans==v[i]) minic++;
+	    }
+	    int inmax=INT_MAX;
+	    
+	        int flag=1;
+	        for(int i=0;i<n;i++){
+	            if(mini==v[i]) continue;
+	            else if(mini!=v[i] &&v[i]-mini>=mini){
+	                inmax=min(inmax,v[i]-mini);
+	               // cout << "i go" << endl;
+	               // cout << inmax << endl;
+	            }
+	            
+	            else{
+	                flag=0;
+	                break;
+	            }
+	        }
+	        if(flag){
+	            cout << inmax <<endl;
+	        }
+	        else{
+	            cout << mini << endl;
+	        }
+	    
+	    
+	}
+ 
+}
