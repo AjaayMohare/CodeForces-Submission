@@ -1,0 +1,68 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	// your code goes here
+	int t;
+	
+	cin >> t;
+	while(t--){
+	    int a,b;
+	    cin >> a >> b;
+	    int la=0;
+	    int cpa=a,cpb=b;
+	    int po=1;
+	    int ch=0;
+	    while(true){
+	        //layer a then layer b
+	        //o and 1 
+	        if(cpa>=po && ch==0){
+	            la++;
+	            cpa-=po;
+	            po*=2;
+	            ch=1;
+	            
+	        }
+	        if(cpb>=po && ch==1){
+	            la++;
+	            cpb-=po;
+	            po*=2;
+	            ch=0;
+	        }
+	        else{
+	            break;
+	        }
+	        
+	        
+	    }
+	    int lla=0;
+	    cpa=b;
+	    cpb=a;
+	    po=1;
+	    ch=0;
+	    while(true){
+	        //layer a then layer b
+	        //o and 1 
+	        if(cpa>=po && ch==0){
+	            lla++;
+	            cpa-=po;
+	            po*=2;
+	            ch=1;
+	            
+	        }
+	        if(cpb>=po && ch==1){
+	            lla++;
+	            cpb-=po;
+	            po*=2;
+	            ch=0;
+	        }
+	        else{
+	            break;
+	        }
+	        
+	        
+	    }
+	    cout << max(la,lla) << endl;
+	}
+ 
+}
