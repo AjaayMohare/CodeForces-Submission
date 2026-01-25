@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	int t;
+	cin >> t;
+	while(t--){
+	   int n;
+	   cin >> n;
+	   vector<int> a(n),b(n);
+	   for(int i=0;i<n;i++) cin >> a[i];
+	   for(int i=0;i<n;i++) cin >> b[i];
+	   vector<long long> bs;
+	   bs.push_back(0);
+	   for(int i=0;i<n;i++){
+	       bs.push_back(bs.back()+b[i]);
+	   }
+	   sort(a.rbegin(),a.rend());
+	   long long mx = 0;
+	   map<int,int> mv;
+	   vector<pair<int,int>> pr;
+	   for(int i=0;i<n;i++){
+	       mv[a[i]]++;
+	   }
+	   for(auto i:mv){
+	       pr.push_back({i.first,i.second});
+	   }
+	   sort(pr.rbegin(),pr.rend());
+	   int swo = 0;
+	   for(int i=0;i<pr.size();i++){
+	       swo += pr[i].second;
+	       int lv = upper_bound(bs.begin(), bs.end(), swo) - bs.begin();
+	       lv--;  
+	       if(lv < 0) lv = 0; 
+	       mx = max(mx, 1LL * pr[i].first * lv); 
+	   }
+	   cout << mx << endl;
+	}
+}
