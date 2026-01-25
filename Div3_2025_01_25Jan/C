@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	// your code goes here
+	int t;
+	cin >> t;
+	while(t--){
+	   int n;
+	   cin >> n;
+	   int q;
+	   cin >> q;
+	   vector<int> a(n),b(n);
+	   for(int i=0;i<n;i++){
+	       cin >> a[i];
+	   }
+	   for(int i=0;i<n;i++){
+	       cin >> b[i];
+	   }	   
+	   int mx = INT_MIN;
+	   vector<int> co;
+       for(int i=n-1;i>=0;i--){
+           mx=max(mx,a[i]);
+           mx=max(mx,b[i]);
+           co.push_back(mx);
+       }
+       reverse(co.begin(),co.end());
+       vector<int> pr;
+       pr.push_back(0);
+       for(int i=0;i<co.size();i++){
+           pr.push_back(pr.back()+co[i]);
+       }
+       for(int i=0;i<q;i++){
+           int l,r;
+           cin >> l >> r;
+           cout << pr[r]-pr[l-1] << " ";
+       }
+       cout << endl;
+       
+ 
+ 
+ 
+	}
+ 
+}
