@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	// your code goes here
+	int t;
+	cin >> t;
+	while(t--){
+	   int n;
+	   cin >> n;
+	   vector<int> v(n);
+	   for(int i=0;i<n;i++) cin >> v[i];
+	   vector<int> cp =v;
+	   sort(cp.rbegin(),cp.rend());
+	   int l = -1;
+	   for(int i=0;i<n;i++){
+	       if(cp[i]!=v[i]){
+	           l=i;
+	           break;
+	       }
+	   }
+	   int r =-1;
+	   int mx = INT_MIN;
+	   for(int i=n-1;i>=0;i--){
+	       if(v[i]!=cp[i] && v[i]>mx){
+	           mx=v[i];
+	           r=i;
+	       }
+	   }
+	   if(l!=-1 && r!=-1){
+	       reverse(v.begin()+l,v.begin()+r+1);
+	   }
+	   for(int i=0;i<n;i++){
+	       cout << v[i] << " ";
+	   }
+	   cout << endl;
+	}
+ 
+}
